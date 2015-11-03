@@ -9,11 +9,15 @@
 /* Begin PBXBuildFile section */
 		4B91EA2C1BE895F1003EDD78 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B91EA2B1BE895F1003EDD78 /* main.m */; };
 		4B91EA2F1BE895F1003EDD78 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B91EA2E1BE895F1003EDD78 /* AppDelegate.m */; };
-		4B91EA321BE895F1003EDD78 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B91EA311BE895F1003EDD78 /* ViewController.m */; };
 		4B91EA351BE895F1003EDD78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B91EA331BE895F1003EDD78 /* Main.storyboard */; };
 		4B91EA381BE895F1003EDD78 /* Chat_With_Me.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4B91EA361BE895F1003EDD78 /* Chat_With_Me.xcdatamodeld */; };
 		4B91EA3A1BE895F1003EDD78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B91EA391BE895F1003EDD78 /* Assets.xcassets */; };
 		4B91EA3D1BE895F1003EDD78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B91EA3B1BE895F1003EDD78 /* LaunchScreen.storyboard */; };
+		4B91EA471BE89814003EDD78 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B91EA461BE89814003EDD78 /* ChatViewController.m */; };
+		4B91EA4C1BE89C99003EDD78 /* Chat+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B91EA491BE89C99003EDD78 /* Chat+CoreDataProperties.m */; };
+		4B91EA4D1BE89C99003EDD78 /* Chat.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B91EA4B1BE89C99003EDD78 /* Chat.m */; };
+		4B91EA501BE89D9C003EDD78 /* ChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B91EA4F1BE89D9C003EDD78 /* ChatTableViewCell.m */; };
+		4B91EA521BE8B535003EDD78 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B91EA511BE8B535003EDD78 /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,13 +25,21 @@
 		4B91EA2B1BE895F1003EDD78 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4B91EA2D1BE895F1003EDD78 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4B91EA2E1BE895F1003EDD78 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4B91EA301BE895F1003EDD78 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4B91EA311BE895F1003EDD78 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4B91EA341BE895F1003EDD78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B91EA371BE895F1003EDD78 /* Chat_With_Me.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Chat_With_Me.xcdatamodel; sourceTree = "<group>"; };
 		4B91EA391BE895F1003EDD78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B91EA3C1BE895F1003EDD78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B91EA3E1BE895F1003EDD78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B91EA441BE89606003EDD78 /* Chat With Me.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Chat With Me.entitlements"; sourceTree = "<group>"; };
+		4B91EA451BE89814003EDD78 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		4B91EA461BE89814003EDD78 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		4B91EA481BE89C99003EDD78 /* Chat+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Chat+CoreDataProperties.h"; sourceTree = "<group>"; };
+		4B91EA491BE89C99003EDD78 /* Chat+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Chat+CoreDataProperties.m"; sourceTree = "<group>"; };
+		4B91EA4A1BE89C99003EDD78 /* Chat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chat.h; sourceTree = "<group>"; };
+		4B91EA4B1BE89C99003EDD78 /* Chat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Chat.m; sourceTree = "<group>"; };
+		4B91EA4E1BE89D9C003EDD78 /* ChatTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatTableViewCell.h; sourceTree = "<group>"; };
+		4B91EA4F1BE89D9C003EDD78 /* ChatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatTableViewCell.m; sourceTree = "<group>"; };
+		4B91EA511BE8B535003EDD78 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B91EA521BE8B535003EDD78 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +57,7 @@
 		4B91EA1E1BE895F1003EDD78 = {
 			isa = PBXGroup;
 			children = (
+				4B91EA511BE8B535003EDD78 /* CloudKit.framework */,
 				4B91EA291BE895F1003EDD78 /* Chat With Me */,
 				4B91EA281BE895F1003EDD78 /* Products */,
 			);
@@ -60,11 +74,18 @@
 		4B91EA291BE895F1003EDD78 /* Chat With Me */ = {
 			isa = PBXGroup;
 			children = (
+				4B91EA481BE89C99003EDD78 /* Chat+CoreDataProperties.h */,
+				4B91EA491BE89C99003EDD78 /* Chat+CoreDataProperties.m */,
+				4B91EA4A1BE89C99003EDD78 /* Chat.h */,
+				4B91EA4B1BE89C99003EDD78 /* Chat.m */,
+				4B91EA441BE89606003EDD78 /* Chat With Me.entitlements */,
 				4B91EA2D1BE895F1003EDD78 /* AppDelegate.h */,
 				4B91EA2E1BE895F1003EDD78 /* AppDelegate.m */,
-				4B91EA301BE895F1003EDD78 /* ViewController.h */,
-				4B91EA311BE895F1003EDD78 /* ViewController.m */,
 				4B91EA331BE895F1003EDD78 /* Main.storyboard */,
+				4B91EA451BE89814003EDD78 /* ChatViewController.h */,
+				4B91EA461BE89814003EDD78 /* ChatViewController.m */,
+				4B91EA4E1BE89D9C003EDD78 /* ChatTableViewCell.h */,
+				4B91EA4F1BE89D9C003EDD78 /* ChatTableViewCell.m */,
 				4B91EA391BE895F1003EDD78 /* Assets.xcassets */,
 				4B91EA3B1BE895F1003EDD78 /* LaunchScreen.storyboard */,
 				4B91EA3E1BE895F1003EDD78 /* Info.plist */,
@@ -113,6 +134,18 @@
 				TargetAttributes = {
 					4B91EA261BE895F1003EDD78 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = S4BJCS5AXT;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -152,9 +185,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B91EA321BE895F1003EDD78 /* ViewController.m in Sources */,
+				4B91EA4C1BE89C99003EDD78 /* Chat+CoreDataProperties.m in Sources */,
+				4B91EA4D1BE89C99003EDD78 /* Chat.m in Sources */,
 				4B91EA381BE895F1003EDD78 /* Chat_With_Me.xcdatamodeld in Sources */,
+				4B91EA501BE89D9C003EDD78 /* ChatTableViewCell.m in Sources */,
 				4B91EA2F1BE895F1003EDD78 /* AppDelegate.m in Sources */,
+				4B91EA471BE89814003EDD78 /* ChatViewController.m in Sources */,
 				4B91EA2C1BE895F1003EDD78 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,10 +301,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Chat With Me/Chat With Me.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Chat With Me/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.friisconsult.Chat-With-Me";
+				PRODUCT_BUNDLE_IDENTIFIER = com.friisconsult.cwm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -276,10 +316,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Chat With Me/Chat With Me.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Chat With Me/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.friisconsult.Chat-With-Me";
+				PRODUCT_BUNDLE_IDENTIFIER = com.friisconsult.cwm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

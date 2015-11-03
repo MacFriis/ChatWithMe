@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "Chat.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -17,9 +18,14 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
+@property (readonly, strong, nonatomic) NSString *me;
+
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
+
+- (void)startListenForChat;
+- (void)submitChatMessage:(Chat *)chat;
 
 @end
 

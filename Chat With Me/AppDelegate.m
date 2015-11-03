@@ -7,16 +7,28 @@
 //
 
 #import "AppDelegate.h"
+@import CloudKit;
 
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
-
+@synthesize me = _me; // only needed as the property is readonly
+- (NSString *)me{
+    if (!_me || _me.length == 0) {
+        _me = [[NSUserDefaults standardUserDefaults] valueForKey:@"me"];
+    }
+    return _me;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     // Override point for customization after application launch.
+
+    [application registerForRemoteNotifications];
+    
+    [self startListenForChat];
     return YES;
 }
 
@@ -86,6 +98,9 @@
         error = [NSError errorWithDomain:@"YOUR_ERROR_DOMAIN" code:9999 userInfo:dict];
         // Replace this with code to handle the error appropriately.
         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        
+        [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
+        
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
@@ -123,5 +138,95 @@
         }
     }
 }
+
+#pragma mark - notifications
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
+    
+    CKNotification *cloudKitNotification = [CKNotification notificationFromRemoteNotificationDictionary:userInfo];
+    
+    if (cloudKitNotification.notificationType == CKNotificationTypeQuery) {
+        CKRecordID *recordID = [(CKQueryNotification *)cloudKitNotification recordID];
+        
+        CKDatabase *publicDatabase = [[CKContainer defaultContainer] publicCloudDatabase];
+        
+        [publicDatabase fetchRecordWithID:recordID completionHandler:^(CKRecord * _Nullable record, NSError * _Nullable error) {
+            if (error) {
+                NSLog(@"%@ - %@",@(__PRETTY_FUNCTION__), error);
+            } else {
+                
+                // coredata is not block safe and we need ui to run in the main thread
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    Chat *chat = [NSEntityDescription insertNewObjectForEntityForName:@"Chat" inManagedObjectContext:self.managedObjectContext];
+                    
+                    chat.date = [record valueForKey:@"date"];
+                    chat.from = [record valueForKey:@"from"];
+                    chat.to   = [record valueForKey:@"to"];
+                    chat.message = [record valueForKey:@"message"];
+                    chat.conversation = [record valueForKey:@"conversation"];
+                    chat.recordName = record.recordID.recordName;
+                    
+                    [self saveContext];
+                    
+                }];
+            }
+        }];
+        
+        
+    }
+    
+    
+    NSLog(@"%@ - %@",@(__PRETTY_FUNCTION__), userInfo);
+    
+    
+    completionHandler(UIBackgroundFetchResultNewData);
+    
+}
+
+
+
+#pragma mark - cloudkit chat
+- (void)startListenForChat{
+    if (!self.me || self.me.length == 0) {
+        return;
+    }
+    
+   
+    
+    
+    CKDatabase *database = [[CKContainer defaultContainer] publicCloudDatabase];
+    
+    CKSubscription *chatSubscription = [[CKSubscription alloc] initWithRecordType:@"Chat" predicate:[NSPredicate predicateWithFormat:@"to == %@",self.me] subscriptionID:self.me options:CKSubscriptionOptionsFiresOnRecordCreation];
+    
+    
+    CKNotificationInfo *notificationInfo = [CKNotificationInfo new];
+    notificationInfo.shouldSendContentAvailable = YES;
+    
+    chatSubscription.notificationInfo = notificationInfo;
+    
+    [database saveSubscription:chatSubscription completionHandler:^(CKSubscription * _Nullable subscription, NSError * _Nullable error) {
+        NSLog(@"%@ - %@",@(__PRETTY_FUNCTION__),error);
+    }];
+}
+
+- (void)submitChatMessage:(Chat *)chat{
+    CKRecord *record = [[CKRecord alloc] initWithRecordType:@"Chat"];
+    chat.recordName = record.recordID.recordName;
+    
+    [record setValue:chat.date forKey:@"date"];
+    [record setValue:chat.to forKey:@"to"];
+    [record setValue:chat.from forKey:@"from"];
+    [record setValue:chat.message forKey:@"message"];
+    [record setValue:chat.conversation forKey:@"conversation"];
+    
+    CKDatabase *publicDatabase = [[CKContainer defaultContainer] publicCloudDatabase];
+    
+    [publicDatabase saveRecord:record completionHandler:^(CKRecord * _Nullable record, NSError * _Nullable error) {
+        NSLog(@"%@ - %@",@(__PRETTY_FUNCTION__), error);
+    }];
+}
+
+
+
 
 @end

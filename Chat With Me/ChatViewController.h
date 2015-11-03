@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ChatViewController.h
 //  Chat With Me
 //
 //  Created by Per Friis on 03/11/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface ChatViewController : UIViewController
 
 @end
-
